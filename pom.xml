@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.onion</groupId>
+	<artifactId>onion-parent</artifactId>
+	<name>onion-parent</name>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<onion.version>0.0.1</onion.version>
+	</properties>
+	
+	<modules>
+	</modules>
+  	
+	<!-- 插件配置 -->
+	<build>
+		<defaultGoal>compile</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<!-- 生成的jar中，不要包含pom.xml和pom.properties这两个文件 -->
+						<addMavenDescriptor>true</addMavenDescriptor>
+					</archive>
+
+					<!-- 过滤掉不希望包含在jar中的文件 -->
+					<excludes>
+						<exclude>**/test/**/*.properties</exclude>
+						<exclude>**/test/**/*.conf</exclude>
+						<exclude>**/test/**/*.xml</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
